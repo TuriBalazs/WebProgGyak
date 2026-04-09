@@ -1,5 +1,4 @@
-<table>
-    <caption>5. gyakorlat 1. feladat:<br>TÁBLÁZAT</caption>
+<table class="table table-bordered table-striped">
     <tr>
         <th>Employee</th>
         <th>Salary</th>
