@@ -7,16 +7,19 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>Gy-beadandó</title>
-	<link rel="icon" type="image/svg+xml" href="/cat3.png" />
+	<title><?= $ablakcim['cim'] . ( (isset($ablakcim['mottó'])) ? ('|' . $ablakcim['mottó']) : '' ) ?></title>
+	<link rel="shortcut icon" href="cat3.png" type="image/x-icon">
+	<link rel="icon" type="image/svg+xml" href="cat3.png" />
 	<link rel="stylesheet" href="./styles/bootstrap.css" type="text/css">
 	<?php if (file_exists('./styles/' . $keres['fajl'] . '.css')) { ?>
-		<link rel="stylesheet" href="./styles/<?= $keres['fajl'] ?>.css" type="text/css"><?php } ?>
+	<link rel="stylesheet" href="./styles/<?= $keres['fajl'] ?>.css" type="text/css"><?php } ?>
 </head>
 
 <body class="bg-primary-subtle w-100">
 	<header class="p-5 bg-secondary">
-		<h1><strong>Web programozás-1 Gyakorlat házi feladat</strong></h1>
+		<h1><?= $fejlec['cim'] ?></h1>
+		<?php if (isset($fejlec['motto'])) { ?><h2><?= $fejlec['motto'] ?></h2><?php } ?>
+		<?php if(isset($_SESSION['login'])) { ?>Bejlentkezve: <strong><?= $_SESSION['csn']." ".$_SESSION['un']." (".$_SESSION['login'].")" ?></strong><?php } ?>
 	</header>
 
 	<div>
@@ -37,12 +40,14 @@
 				</div>
 			</div>
 		</nav>
-		<div class="p-2 align-items-center w-100 p-3" id="content">
+		<div class="p-3 w-100" id="content">
 			<?php include("./templates/pages/{$keres['fajl']}.tpl.php"); ?>
 		</div>
 	</div>
-	<footer class="p-3 bg-secondary-subtle">
-		<p>Copyright © Túri Balázs - GJ8N08 | Kocsis Ágnes Virág - XNNBSI</p>
+	<footer class="p-3 bg-secondary-subtle text-center">
+		<?php if(isset($lablec['copyright'])) { ?>&copy;&nbsp;<?= $lablec['copyright'] ?> <?php } ?>
+		&nbsp;
+        <?php if(isset($lablec['ceg'])) { ?><?= $lablec['ceg']; ?><?php } ?>
 	</footer>
 </body>
 
