@@ -1,32 +1,35 @@
-<table class="table table-bordered table-striped">
-    <tr>
-        <th>Employee</th>
-        <th>Salary</th>
-        <th>Bonus</th>
-        <th>Supervisor</th>
-    </tr>
-    <tr>
-        <td>Stephen C. Cox</td>
-        <td>$300</td>
-        <td>$50</td>
-        <td>Bob</td>
-    </tr>
-    <tr>
-        <td>Josephin Tan</td>
-        <td>$150</td>
-        <td>-</td>
-        <td>Annie</td>
-    </tr>
-    <tr>
-        <td>Joyce Ming</td>
-        <td>$200</td>
-        <td>$35</td>
-        <td>Andy</td>
-    </tr>
-    <tr>
-        <td>James A. Pentel</td>
-        <td>$175</td>
-        <td>$25</td>
-        <td>Annie</td>
-    </tr>
-</table>
+<?php
+$kepek = array();
+$olvaso = opendir($MAPPA);
+while (($fajl = readdir($olvaso)) !== false)
+    if (is_file($MAPPA . $fajl)) {
+        $vege = strtolower(substr($fajl, strlen($fajl) - 4));
+        if (in_array($vege, $TIPUSOK))
+            $kepek[$fajl] = filemtime($MAPPA . $fajl);
+    }
+closedir($olvaso);
+?>
+<div class="align-items-center container w-75">
+<div class="row">
+    <h1>Galéria</h1>
+    <?php
+    arsort($kepek);
+    foreach ($kepek as $fajl => $datum) {
+        ?>
+        <div class="col">
+            <div class="card mb-3" style="width: 22rem;">
+            <a href=" <?php echo $MAPPA . $fajl ?>">
+                <img src="<?php echo $MAPPA . $fajl ?>" class="card-img-top">
+                </a>
+                <div class="card-body">
+                    <p>Név: <?php echo $fajl; ?></p>
+                    <p>Dátum: <?php echo date($DATUMFORMA, $datum); ?></p>
+                </div>
+            </div>
+        </div>
+        <?php
+    }
+    ?>
+</div>
+</div>
+</div>
