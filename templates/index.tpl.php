@@ -47,7 +47,13 @@
 			</div>
 		</nav>
 		<div class="p-3 w-100" id="content">
-			<?php include("./templates/pages/{$keres['fajl']}.tpl.php"); ?>
+			<?php 
+		//	if(str_contains($route,"edituser"))
+		//		{ include("./templates/pages/edituser.tpl.php");}
+		//	elseif(str_contains($route,"deleteuser")) {include("./templates/pages/deleteuser.tpl.php");}
+		//	else {
+			include("./templates/pages/{$keres['fajl']}.tpl.php");//} 
+			?>
 		</div>
 	</div>
 	<footer class="p-3 bg-secondary-subtle text-center">

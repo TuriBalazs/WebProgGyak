@@ -1,32 +1,34 @@
-<table class="table table-bordered table-striped">
+<?php
+  include 'db_connect.php';
+  $stmt = $connect->prepare('SELECT * FROM munkaado Order by mhelyid');
+  $stmt->execute();
+?>
+<a href="createuser" class="createbtn"><button class="btn btn-primary">Add User</button></a>
+<table class="table table-bordered">
+  <thead>
     <tr>
-        <th>Employee</th>
-        <th>Salary</th>
-        <th>Bonus</th>
-        <th>Supervisor</th>
+      <th>mhelyid</th>
+      <th>nev</th>
+      <th>telepules</th>
     </tr>
+  </thead>
+  <tbody>
+    <?php
+        while ($data = $stmt->fetch(PDO::FETCH_ASSOC)) {
+    ?>
     <tr>
-        <td>Stephen C. Cox</td>
-        <td>$300</td>
-        <td>$50</td>
-        <td>Bob</td>
+      <th><?php echo $data['mhelyid']; ?></th>
+      <th><?php echo $data['nev']; ?></th>
+      <td><?php echo $data['telepules']; ?></td>
+      <td>
+        <?php
+            echo '<a href="edituser?mhelyid='.$data['mhelyid'].'"><button class="btn btn-primary">Edit</button></a> ';
+            echo '<a href="deleteuser?mhelyid='.$data['mhelyid'].'"><button class="btn btn-danger">Delete</button></a>';
+        ?>
+      </td>
     </tr>
-    <tr>
-        <td>Josephin Tan</td>
-        <td>$150</td>
-        <td>-</td>
-        <td>Annie</td>
-    </tr>
-    <tr>
-        <td>Joyce Ming</td>
-        <td>$200</td>
-        <td>$35</td>
-        <td>Andy</td>
-    </tr>
-    <tr>
-        <td>James A. Pentel</td>
-        <td>$175</td>
-        <td>$25</td>
-        <td>Annie</td>
-    </tr>
+    <?php
+        }
+    ?>
+  </tbody>
 </table>
