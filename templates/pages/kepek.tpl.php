@@ -10,26 +10,25 @@ while (($fajl = readdir($olvaso)) !== false)
 closedir($olvaso);
 ?>
 <div class="align-items-center container w-75">
-<div class="row">
-    <h1>Galéria</h1>
-    <?php
-    arsort($kepek);
-    foreach ($kepek as $fajl => $datum) {
-        ?>
-        <div class="col">
-            <div class="card mb-3" style="width: 22rem;">
-            <a href=" <?php echo $MAPPA . $fajl ?>">
-                <img src="<?php echo $MAPPA . $fajl ?>" class="card-img-top">
-                </a>
-                <div class="card-body">
-                    <p>Név: <?php echo $fajl; ?></p>
-                    <p>Dátum: <?php echo date($DATUMFORMA, $datum); ?></p>
+    <div class="row">
+        <h1>Galéria</h1>
+        <?php
+        arsort($kepek);
+        foreach ($kepek as $fajl => $datum) {
+            ?>
+            <div class="col">
+                <div class="card mb-3" style="width: 22rem;">
+                    <a href=" <?php echo $MAPPA . $fajl ?>">
+                        <img src="<?php echo $MAPPA . $fajl ?>" class="card-img-top" style="height: 20rem; width 20rem">
+                    </a>
+                    <div class="card-body">
+                        <p>Név: <?php echo $fajl; ?></p>
+                        <p>Dátum: <?php echo date($DATUMFORMA, $datum); ?></p>
+                    </div>
                 </div>
             </div>
-        </div>
-        <?php
-    }
-    ?>
-</div>
-</div>
+            <?php
+        }
+        ?>
+    </div>
 </div>
