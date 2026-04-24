@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2026. Ápr 20. 13:51
+-- Létrehozás ideje: 2026. Ápr 24. 17:16
 -- Kiszolgáló verziója: 10.4.32-MariaDB
 -- PHP verzió: 8.2.12
 
@@ -513,6 +513,28 @@ INSERT INTO `munkaado` (`mhelyid`, `nev`, `telepules`) VALUES
 (10, 'Falat Pékség', 'Komád'),
 (11, 'Korr Vaskereskedés', 'Csepűfalva');
 
+-- --------------------------------------------------------
+
+--
+-- Tábla szerkezet ehhez a táblához `uzenetek`
+--
+
+CREATE TABLE `uzenetek` (
+  `id` int(11) NOT NULL,
+  `nev` varchar(30) NOT NULL,
+  `uzenet` varchar(100) NOT NULL,
+  `ido` date NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- A tábla adatainak kiíratása `uzenetek`
+--
+
+INSERT INTO `uzenetek` (`id`, `nev`, `uzenet`, `ido`) VALUES
+(1, 'Vendég', 'Ez csak egy minta üzenet', '2026-04-24'),
+(2, 'Családi_1 Utónév_1', 'hello word', '2026-04-24'),
+(3, 'Vendég', 'mi folyik it lent gyöngyösön', '2026-04-24');
+
 --
 -- Indexek a kiírt táblákhoz
 --
@@ -563,6 +585,12 @@ ALTER TABLE `munkaado`
   ADD PRIMARY KEY (`mhelyid`);
 
 --
+-- A tábla indexei `uzenetek`
+--
+ALTER TABLE `uzenetek`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- A kiírt táblák AUTO_INCREMENT értéke
 --
 
@@ -601,6 +629,12 @@ ALTER TABLE `munka`
 --
 ALTER TABLE `munkaado`
   MODIFY `mhelyid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT a táblához `uzenetek`
+--
+ALTER TABLE `uzenetek`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Megkötések a kiírt táblákhoz
