@@ -12,10 +12,10 @@
     <h3 class="text-center">CRUD OPERATIONS</h3>
     <?php
         $route=$_SERVER['QUERY_STRING'];
-        if($route=="") include("main.php");
-        if($route=="createuser") include("createuser.php");
-        if(str_contains($route,"edituser")) include("edituser.php");
-        if(str_contains($route,"deleteuser")) include("deleteuser.php");         
+        if($route=="") include("tablazat.tpl.php");
+        if($route=="createuser") include("createuser.tpl.php");
+        if(str_contains($route,"edituser")) include("edituser.tpl.php");
+        if(str_contains($route,"deleteuser")) include("deleteuser.tpl.php");         
     ?>
 </body>
 </html>
