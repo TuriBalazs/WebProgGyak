@@ -5,8 +5,7 @@
     <p>Videó:</p>
     <div class="ratio ratio-16x9 align-items-center m-2">
         <video controls>
-            <source src="technition.mp4" type="video/mp4">
-            Your browser does not support the video tag.
+            <source src="tgttel.mp4" type="video/mp4">
         </video>
     </div>
     <br/>
