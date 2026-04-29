@@ -1,6 +1,6 @@
 <?php
   include 'db_connect.php';
-  $stmt = $connect->prepare('SELECT * FROM munkaado Order by mhelyid');
+  $stmt = $pdo->prepare('SELECT * FROM munkaado Order by mhelyid');
   $stmt->execute();
 ?>
 <a href="createuser" class="createbtn"><button class="btn btn-primary">Add User</button></a>

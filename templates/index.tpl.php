@@ -7,6 +7,7 @@
 
 <head>
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title><?= $ablakcim['cim'] . ((isset($ablakcim['mottó'])) ? ('|' . $ablakcim['mottó']) : '') ?></title>
 	<link rel="shortcut icon" href="cat3.png" type="image/x-icon">
 	<link rel="icon" type="image/svg+xml" href="cat3.png" />
@@ -25,9 +26,9 @@
 			<strong><?= $_SESSION['csn'] . " " . $_SESSION['un'] . " (" . $_SESSION['login'] . ")" ?></strong><?php } ?>
 	</header>
 
-	<div class="fs-4">
-		<nav class="navbar navbar-expand-lg bg-secondary-subtle p-2 justify-content-center">
-			<div class="container-fluid justify-content-center">
+	<div>
+		<nav class="navbar navbar-expand-lg bg-secondary-subtle p-2">
+			<div class="container-fluid">
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
@@ -35,7 +36,7 @@
 					<ul class="navbar-nav justify-content-center">
 						<?php foreach ($oldalak as $url => $oldal) { ?>
 							<?php if (!isset($_SESSION['login']) && $oldal['menun'][0] || isset($_SESSION['login']) && $oldal['menun'][1]) { ?>
-								<li class="nav-item" <?= (($oldal == $keres) ? ' class="active"' : '') ?>>
+								<li class="nav-item border" <?= (($oldal == $keres) ? ' class="active"' : '') ?>>
 									<a class="nav-link" href="<?= ($url == '/') ? '.' : $url ?>">
 										<?= $oldal['szoveg'] ?></a>
 								</li>
@@ -46,14 +47,8 @@
 				</div>
 			</div>
 		</nav>
-		<div class="p-3 w-100" id="content">
-			<?php 
-		//	if(str_contains($route,"edituser"))
-		//		{ include("./templates/pages/edituser.tpl.php");}
-		//	elseif(str_contains($route,"deleteuser")) {include("./templates/pages/deleteuser.tpl.php");}
-		//	else {
-			include("./templates/pages/{$keres['fajl']}.tpl.php");//} 
-			?>
+		<div class="p-3 w-100 m-1 p-1" id="content">
+			<?php include("./templates/pages/{$keres['fajl']}.tpl.php"); ?>
 		</div>
 	</div>
 	<footer class="p-3 bg-secondary-subtle text-center">
