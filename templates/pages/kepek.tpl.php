@@ -17,7 +17,7 @@ closedir($olvaso);
         foreach ($kepek as $fajl => $datum) {
             ?>
             <div class="col">
-                <div class="card mb-3" style="width: 22rem;">
+                <div class="card mb-3" style="width: 16rem;">
                     <a href=" <?php echo $MAPPA . $fajl ?>">
                         <img src="<?php echo $MAPPA . $fajl ?>" class="card-img-top" style="height: 20rem; width 20rem">
                     </a>
