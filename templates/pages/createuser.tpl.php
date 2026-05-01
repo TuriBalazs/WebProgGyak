@@ -1,8 +1,8 @@
 <?php
-    include 'db_connect.php';
+  include __DIR__ . '/../../db.php';
     if ($_SERVER['REQUEST_METHOD']=="POST") {
         if($_POST['nev']!=""){
-            $stmt = $connect->prepare('INSERT into munkaado (nev, telepules) VALUES (:nev, :telepules)');
+            $stmt = $pdo->prepare('INSERT into munkaado (nev, telepules) VALUES (:nev, :telepules)');
             $stmt->execute(array(':nev' => $_POST['nev'],':telepules' => $_POST['telepules'],));
         }
         header("Location: .");  // Go to the main folder
@@ -12,7 +12,7 @@
     <div class="col-md-6">
         <input type="text" name="nev" class="form-control" placeholder="nev"><br />
         <input type="text" name="telepules" class="form-control" placeholder="telepules"><br />
-        <button  class="btn btn-primary">Submit</button>
-        <a href="."><button class="btn btn-danger">Main page</button></a>
+        <button  class="btn btn-primary">Oké</button>
+        <a href="."><button class="btn btn-danger">Főoldal</button></a>
     </div>
 </form>

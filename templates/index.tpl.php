@@ -1,17 +1,25 @@
-<?php session_start(); ?>
-<?php if (file_exists('./logicals/' . $keres['fajl'] . '.php')) {
-	include("./logicals/{$keres['fajl']}.php");
-} ?>
+<?php session_start(); ?> 
+
 <!DOCTYPE html>
 <html>
 
 <head>
 	<meta charset="utf-8">
-	<title><?= $ablakcim['cim'] . ((isset($ablakcim['mottó'])) ? ('|' . $ablakcim['mottó']) : '') ?></title>
 	<link rel="shortcut icon" href="cat3.png" type="image/x-icon">
 	<link rel="icon" type="image/svg+xml" href="cat3.png" />
-	<script src="./js/bootstrap.js"></script>
 	<link rel="stylesheet" href="./styles/bootstrap.css" type="text/css">
+	<script src="./js/bootstrap.js"></script>
+<?php 
+$tableAction = $_SESSION['table_action'] ?? null;
+unset($_SESSION['table_action']);
+?>
+ 
+<?php
+if($keres){
+if (file_exists('./logicals/' . $keres['fajl'] . '.php')) {
+	include("./logicals/{$keres['fajl']}.php");
+} ?>
+	<title><?= $ablakcim['cim'] . ((isset($ablakcim['mottó'])) ? ('|' . $ablakcim['mottó']) : '') ?></title>
 	<?php if (file_exists('./styles/' . $keres['fajl'] . '.css')) { ?>
 		<link rel="stylesheet" href="./styles/<?= $keres['fajl'] ?>.css" type="text/css"><?php } ?>
 </head>
@@ -19,10 +27,14 @@
 <body class="bg-primary-subtle w-100 container-fluid p-0">
 	<header class="p-5 bg-secondary">
 		<h1 class="fs-1"><?= $fejlec['cim'] ?></h1>
+
+
 		<?php if (isset($fejlec['motto'])) { ?>
 			<h2><?= $fejlec['motto'] ?></h2><?php } ?>
 		<?php if (isset($_SESSION['login'])) { ?>Bejlentkezve:
 			<strong><?= $_SESSION['csn'] . " " . $_SESSION['un'] . " (" . $_SESSION['login'] . ")" ?></strong><?php } ?>
+
+
 	</header>
 
 	<div class="fs-4">
@@ -46,21 +58,18 @@
 				</div>
 			</div>
 		</nav>
-		<div class="p-3 w-100" id="content">
-			<?php 
-		//	if(str_contains($route,"edituser"))
-		//		{ include("./templates/pages/edituser.tpl.php");}
-		//	elseif(str_contains($route,"deleteuser")) {include("./templates/pages/deleteuser.tpl.php");}
-		//	else {
-			include("./templates/pages/{$keres['fajl']}.tpl.php");//} 
-			?>
-		</div>
-	</div>
-	<footer class="p-3 bg-secondary-subtle text-center">
-		<?php if (isset($lablec['copyright'])) { ?>&copy;&nbsp;<?= $lablec['copyright'] ?> <?php } ?>
-		&nbsp;
-		<?php if (isset($lablec['ceg'])) { ?>	<?= $lablec['ceg']; ?><?php } ?>
-	</footer>
+		
+		
+		
+<?php include("./templates/pages/{$keres['fajl']}.tpl.php"); ?>
+</div>
+</div>
+ 
+    <footer class="p-3 bg-secondary-subtle text-center">
+<?php if (isset($lablec['copyright'])) { ?>&copy;&nbsp;<?= $lablec['copyright'] ?> <?php } ?>
+&nbsp;
+<?php if (isset($lablec['ceg'])) { ?>   <?= $lablec['ceg']; ?><?php } }?>
+</footer>
 </body>
 
 </html>
