@@ -2,7 +2,7 @@
 
 
 try {
-        $dbh = new PDO('mysql:host=localhost;dbname=webprog', 'root', '',
+        $dbh = new PDO('mysql:host=localhost;dbname=webprog', 'webprog', 'GJ8n08_xnnbsi',
                         array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
         $dbh->query('SET NAMES utf8 COLLATE utf8_hungarian_ci');
         

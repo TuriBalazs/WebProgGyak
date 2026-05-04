@@ -1,10 +1,10 @@
 <div class="w-100 container align-items-center">
-    <div class="w-50 align-items-center">
+    <div class="w-75 align-items-center">
         <h2 class="m-2">Adatok:</h2>
-        <p class="m-2">Ügyvezető: <strong>Valaki Az</strong></p>
-        <p class="m-2">E-mail: <strong>valaki.az@minihonlap.hu</strong></p>
+        <p class="m-2">Ügyvezető: <strong>Túri Balázs</strong></p>
+        <p class="m-2">Szerkesztő: <strong>Kocsis Ágnes Virág</strong></p>
     </div>
-    <div class="w-50 align-items-center">
+    <div class="align-items-center" style="width: 20rem;">
         <div class="mb-3 align-items-center">
             <form action="uzenetkuldes" method="post">
                 <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>

@@ -1,4 +1,4 @@
-<div class="align-items-center container w-25" >
+<div class="align-items-center container" style="width: 20rem;">
   <form class="" action="belep" method="post">
     <fieldset >
       <legend>Bejlentkezés</legend>
