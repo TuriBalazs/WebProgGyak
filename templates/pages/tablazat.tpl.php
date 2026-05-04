@@ -4,7 +4,6 @@
   $stmt->execute();
   $users = $stmt->fetchAll();
 ?>
-<<<<<<< Updated upstream
 <div class="mb-4">    
   <a href="createuser" class="createbtn"><button class="btn btn-primary">Új felhasználó</button></a>
 </a>
@@ -46,35 +45,6 @@
   </tr>    
     <?php endforeach; ?>   
     <?php endif; ?>    
-=======
-<a href="createuser" class="createbtn"><button class="btn btn-primary">Add User</button></a>
-<table class="table table-bordered w-75">
-  <thead>
-    <tr>
-      <th>mhelyid</th>
-      <th>nev</th>
-      <th>telepules</th>
-    </tr>
-  </thead>
-  <tbody>
-    <?php
-        while ($data = $stmt->fetch(PDO::FETCH_ASSOC)) {
-    ?>
-    <tr>
-      <th><?php echo $data['mhelyid']; ?></th>
-      <th><?php echo $data['nev']; ?></th>
-      <td><?php echo $data['telepules']; ?></td>
-      <td>
-        <?php
-            echo '<a href="edituser?mhelyid='.$data['mhelyid'].'"><button class="btn btn-primary">Edit</button></a> ';
-            echo '<a href="deleteuser?mhelyid='.$data['mhelyid'].'"><button class="btn btn-danger">Delete</button></a>';
-        ?>
-      </td>
-    </tr>
-    <?php
-        }
-    ?>
->>>>>>> Stashed changes
   </tbody>
 </table>
 </div>
