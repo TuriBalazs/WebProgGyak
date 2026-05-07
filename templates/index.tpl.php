@@ -5,6 +5,7 @@
 
 <head>
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="shortcut icon" href="cat3.png" type="image/x-icon">
 	<link rel="icon" type="image/svg+xml" href="cat3.png" />
 	<link rel="stylesheet" href="./styles/bootstrap.css" type="text/css">
