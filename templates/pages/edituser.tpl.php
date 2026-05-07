@@ -6,7 +6,7 @@
             $stmt = $pdo->prepare('UPDATE munkaado set nev = :nev, telepules = :telepules where mhelyid = :mhelyid');
             $stmt->execute(array(':nev' => $_POST['nev'],':telepules' => $_POST['telepules'],':mhelyid' => $_GET['mhelyid'],));
         }
-        header("Location: ."); // Go to the main folder
+        header("Location: ./tablazat"); // Go to the main folder
     }
     $stmt = $pdo->prepare('SELECT * from munkaado where mhelyid = :mhelyid');
     $stmt->execute(array(':mhelyid' => $_GET["mhelyid"]));

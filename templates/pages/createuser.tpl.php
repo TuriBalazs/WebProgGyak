@@ -5,7 +5,7 @@
             $stmt = $pdo->prepare('INSERT into munkaado (nev, telepules) VALUES (:nev, :telepules)');
             $stmt->execute(array(':nev' => $_POST['nev'],':telepules' => $_POST['telepules'],));
         }
-        header("Location: .");  // Go to the main folder
+        header("Location: ./tablazat");  // Go to the main folder
     }
 ?>
 <form method="POST">
